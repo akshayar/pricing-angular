@@ -1,0 +1,66 @@
+<form id="tradeQueryForm" class="form-horizontal" role="form" ng-submit="vm.price()">
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="tradeId">Trade Id</label>
+		<div class="col-sm-3">
+			<input class="form-control" id="tradeId" placeholder="Trade Id"
+				ng-model="vm.priceData.tradeId">
+		</div>
+		<label class="control-label col-sm-2" for="measures">Measures</label>
+		<div class="col-sm-3">
+			<input class="form-control" id="measures" placeholder="Measures"
+				ng-model="vm.priceData.measures">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="date">Valuation Date</label>
+		<div class="col-sm-3">
+			<div class="row">
+				<div class="col-sm-8">
+					<input class="form-control" type="text" id="date"
+						ng-model="vm.priceData.date">
+				</div>
+			</div>
+		</div>
+		<label class="control-label col-sm-2" for="peName">PE Name</label>
+		<div class="col-sm-3">
+			<input class="form-control" id="peName" placeholder=""
+				ng-model="vm.priceData.peName">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-3">
+			<button class="btn btn-lg btn-primary btn-block" type="submit"
+				>Price</button>
+		</div>
+	</div>
+	
+	<table class="table table-bordered table-hover">
+	 <thead>
+	  <tr>
+        <th>Trade Id</th>
+        <td>{{vm.priceData.tradeId}}</td>
+		<th>Measures</th>
+        <td>{{vm.priceData.measures}}</td>
+      </tr>
+	  <tr>
+        <th>Valuation Date</th>
+        <td>{{vm.priceData.date}}</td>
+		<th>PE Name</th>
+        <td>{{vm.priceData.peName}}</td>
+      </tr>
+      <tr>
+        <th>Measure</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+	<tr>
+	  <tr ng-repeat="measure in vm.priceResult.measures">
+		<td>{{ measure.measure }}</td>
+		<td>{{ measure.value }}</td>
+	</tr>
+	</table>
+
+
+
+
+</form>
